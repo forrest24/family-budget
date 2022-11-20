@@ -1,0 +1,30 @@
+.form-container {
+    margin: 100px auto 0;
+    max-width: 450px;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-container h4 {
+    text-align: center;
+}
+
+.form-container a {
+    color: #4b4276;
+}
+
+.form-container input[type='submit'] {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin: 20px auto;
+    background: #4b4276;
+    color: #fff;
+}
+
+.form-container input[type='submit']:hover {
+    background: #594f8d;
+}

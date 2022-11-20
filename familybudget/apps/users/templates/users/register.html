@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block styles %}
+    <link href="{% static 'users/css/styles.css' %}" rel="stylesheet">
+{% endblock styles %}
+
+{% block content %}
+    <div class="form-container">
+        {% for message in messages %}
+            <p class="alert alert-success text-center" role="alert">{{ message }}</p>
+        {% endfor %}
+        <form action="" method="post">
+            {% csrf_token %}
+            <h1>{% translate "Create new user" %}</h1>
+            {{ form|crispy }}
+            <input type="submit" value="{% translate 'Create' %}">
+            <h4>{% translate "Already have an account?" %} <a
+                    href="{% url 'users:login' %}">{% translate "Log in" %}</a></h4>
+        </form>
+    </div>
+{% endblock content %}
