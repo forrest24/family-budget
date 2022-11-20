@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=dev_db
+      - POSTGRES_USER=dev_user
+      - POSTGRES_PASSWORD=dev_pass
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  web:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=dev_db
+      - DB_USER=dev_user
+      - DB_PASS=dev_pass
+    volumes:
+      - ./familybudget:/code/familybudget/
+    working_dir:
+      /code/familybudget/
+    command: >
+      sh -c "DJANGO_SETTINGS_MODULE=config.settings.develop python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - db

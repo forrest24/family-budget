@@ -1,0 +1,18 @@
+# Pycharm
+.idea/
+
+# Environments
+.venv/
+
+# Python
+__pycache__/
+
+# Database
+data/
+
+# Unit tests and coverage reports
+.coverage
+.coverage.*
+
+# Django
+.env
